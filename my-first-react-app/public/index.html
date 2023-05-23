@@ -31,73 +31,94 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander&family=Josefin+Sans:ital,wght@1,300&family=Wix+Madefor+Display:wght@500&display=swap" rel="stylesheet">
+
   <style>
 
-    h1
+    .header
     {
-      position: relative;
-      border: 2px solid white;
+      border: 3px solid rgb(245, 245, 245);
       text-align: center;
-    }
-
-    .bodySection
-    {
-      text-align: center;
-      color:white
-    }
-
-    .submitB
-    {
-      width: 10%;
-      border: none;
-      background-color: white;
-      padding: 7px 7px;
-      font-size: small;
-      cursor: pointer;
-      text-align: center;
-      font-size: xx-large;
-      font-family:'Wix Madefor Display', sans-serif;  
-     
-    }
-
-    h3
-    {
+      background-color: rgb(252, 187, 246);
       color: white;
+      
+    }
+
+    .subHeader
+    {
+      color: rgb(239, 255, 17);
       font-family: 'Josefin Sans', sans-serif;
       text-align: center;
     }
 
-    body
+    .logo
     {
-      background-color:black;
-      background-image: url('./images/background.jpg');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
+      position: relative; left: 988px; top:60px;
+      height: 130px;
+      width: 130px;
+      border-radius: 10px;
+    }
+
+   body
+    {
+      background-color: rgb(98, 211, 245);
       font-family:'Wix Madefor Display', sans-serif;  
-      color:white;
-      
-    }
-
-    ul
-    {
-      text-align:left;
-    }
-
-    li
-    {
-        margin: 2em 0;
-    }
-
-    input
-    {
-      font-family: 'Wix Madefor Display', sans-serif; 
+      color:rgb(239, 255, 17);
     }
 
     form
     {
-      text-align:left;
-      margin: 2em 0;
+      text-align:center;
+      margin: 1em 5;
+    }
+
+    .textBox
+    {
+      width:400px;
+      height:30px;
+      font-family: 'Grandstander', cursive; 
+      font-size: x-large;
+      background-color: rgb(245, 237, 227);
+    }
+
+    .submitB
+    {
+      width: 5%;
+      background-color: white;
+      padding: 10px 10px;
+      cursor:pointer;
+      text-align: center;
+      font-size: 25px;
+      font-family:'Wix Madefor Display', sans-serif;  
+      border-radius: 15px;
+    }
+
+    ul
+    {
+      text-align:center;
+      list-style-type: none;
+      font-family: 'Grandstander', cursive;
+    }
+
+    li
+    {
+        margin: 3em 0;
+        font-size: xx-large;
+        
+    }
+
+    .checkB
+    {
+      width: 30px;
+      height: 30px;
+    }
+
+    .due
+    {
+      color:black;
+      font-size: large;
     }
 
     .deleteB
@@ -105,22 +126,23 @@
       width: 5%;
       border: none;
       background-image: url('./images/trash2.jpg');
-      background-size: 100px;
+      background-size: 45px;
       width: 50px;
       height: 50px;
+      position: relative; right: 445px;
       border: 3px solid;
-      padding: 10px 10px;
       cursor: pointer;
+      border-radius: 12px;
     }
 
+    
   </style>
   </head>
   <body id="body">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class = 'headerSection' id="root">
+    <div id="root">
     </div>
-    <div class='bodySection' id="root2"> 
-    </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
