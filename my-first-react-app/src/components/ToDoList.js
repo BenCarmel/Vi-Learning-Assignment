@@ -1,4 +1,3 @@
-import {useEffect ,useState } from "react";
 import React from "react"; 
 
 class ToDoList extends React.Component
@@ -10,7 +9,8 @@ class ToDoList extends React.Component
         this.state = tasks;
      }
 
-     componentDidMount() // Everytime the component mounts -> the state is set according to the local storage
+    // Everytime the component mounts -> its state is set according to the local storage
+     componentDidMount() 
      {
         if (localStorage.getItem('tasks')===null)
         {
@@ -22,10 +22,11 @@ class ToDoList extends React.Component
         }
      }
 
-     componentDidUpdate() // Everytime an update occurs with the component, the local storage is updated accordingly 
-     {
+     // Everytime an update occurs with the component, the local storage updates accordingly
+    componentDidUpdate()  
+    {
         localStorage.setItem('tasks', JSON.stringify(this.state.tdl));
-     }
+    }
     
     handleTaskChange = (event) =>
     {
@@ -45,7 +46,9 @@ class ToDoList extends React.Component
         localStorage.setItem('tasks', JSON.stringify(this.state.tdl));   
     }
 
-    handleSubmit = (event) => // Submit Button Option
+        
+    // Submit Button Option
+    handleSubmit = (event) => 
     {
         event.preventDefault();
         const {tdl, inputTaskValue, inputDueValue} = this.state;
@@ -55,7 +58,8 @@ class ToDoList extends React.Component
         this.setState({inputTaskValue:'', inputDueValue:''});  
     }
 
-    handleDelete = (index) => // Task Removal Option
+    // Task Removal Option
+    handleDelete = (index) => 
     {
         const {tdl} = this.state;
         const updatedTdl = [...tdl];
@@ -76,7 +80,8 @@ class ToDoList extends React.Component
         <h2> <strong> {this.state.tdl.length} tasks left</strong></h2>
         <button className= "submitB" type="submit" disabled = {inputTaskValue.trim() === '' || inputDueValue.trim() === ''} value="submit" onClick={() => this.handleSubmit}> Add </button>
         </form >
-        <ul> {this.state.tdl.map((task, index) => (<li key={index} type="checkbox"><input className="checkB" type="checkbox" onChange={() =>this.handleCheckChange(index)} checked={tdl[index].check} ></input> 
+        <ul> {this.state.tdl.map((task, index) => 
+        (<li key={index} type="checkbox"><input className="checkB" type="checkbox" onChange={() =>this.handleCheckChange(index)} checked={tdl[index].check} ></input> 
         {tdl[index].task} <br></br> 
         <p className="due"> <strong> <u> {tdl[index].due} </u>  </strong> </p> 
         <button className="deleteB" onClick={() =>this.handleDelete(index)} ></button> <br></br> 
