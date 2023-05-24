@@ -5,14 +5,21 @@ class ToDoList extends React.Component
 {   
     constructor(props)
      {
-        super (props);
-        const tasks = {tdl:[{task:'Take the dog for a walk', due: 'tonight', check:false}, {task:'Shop for groceries', due: 'friday', check:false}, {task: 'Clean the living room', due: 'tomorrow', check:false}, {task: 'Call the bank', due: 'next tuesday', check:false}, {task:'Fix the toilet', due: 'immediate', check:false}, {task: 'Cook dinner', due: '1 hour', check:false} ], inputTaskValue:'', inputDueValue:''};
+        super (props); 
+        const tasks = {tdl:[{task: null, due: null, check:false}], inputTaskValue:'', inputDueValue:''};
         this.state = tasks;
      }
 
      componentDidMount() // Everytime the component mounts -> the state is set according to the local storage
      {
-        this.setState({tdl:JSON.parse(localStorage.getItem('tasks'))});
+        if (localStorage.getItem('tasks')===null)
+        {
+            this.setState({tdl:[]});
+        }
+        else
+        {
+            this.setState({tdl:JSON.parse(localStorage.getItem('tasks'))});
+        }
      }
 
      componentDidUpdate() // Everytime an update occurs with the component, the local storage is updated accordingly 
@@ -69,7 +76,6 @@ class ToDoList extends React.Component
         <h2> <strong> {this.state.tdl.length} tasks left</strong></h2>
         <button className= "submitB" type="submit" disabled = {inputTaskValue.trim() === '' || inputDueValue.trim() === ''} value="submit" onClick={() => this.handleSubmit}> Add </button>
         </form >
-        {localStorage.setItem['tasks']}
         <ul> {this.state.tdl.map((task, index) => (<li key={index} type="checkbox"><input className="checkB" type="checkbox" onChange={() =>this.handleCheckChange(index)} checked={tdl[index].check} ></input> 
         {tdl[index].task} <br></br> 
         <p className="due"> <strong> <u> {tdl[index].due} </u>  </strong> </p> 
@@ -80,10 +86,12 @@ class ToDoList extends React.Component
         );
     }
 
-
 }
 
 export default ToDoList;
+
+
+          
 
 
           
