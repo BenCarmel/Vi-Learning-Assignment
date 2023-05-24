@@ -62,7 +62,7 @@ class ToDoList extends React.Component
         const {tdl, inputTaskValue, inputDueValue} = this.state;
         return ( 
         <div> 
-        <form onSubmit={this.handleSubmit}> 
+        <form className="taskForm" onSubmit={this.handleSubmit}> 
         <br></br> <br></br> <br></br><br></br> <br></br> <br></br>
         <input className="textBox" type="text" placeholder = "Add task to TDL" value = {this.state.inputTaskValue} onChange={this.handleTaskChange}></input> <br></br> <br></br>
         <input className="textBox" type="text" placeholder = "When is it due?" value = {this.state.inputDueValue} onChange={this.handleDueChange}></input> <br></br> <br></br>
@@ -70,7 +70,7 @@ class ToDoList extends React.Component
         <button className= "submitB" type="submit" disabled = {inputTaskValue.trim() === '' || inputDueValue.trim() === ''} value="submit" onClick={() => this.handleSubmit}> Add </button>
         </form >
         {localStorage.setItem['tasks']}
-        <ul> {this.state.tdl.map((task, index) => (<li key={index} type="checkbox"><input className= "checkB" type="checkbox" onChange={() =>this.handleCheckChange(index)} checked={tdl[index].check} ></input> 
+        <ul> {this.state.tdl.map((task, index) => (<li key={index} type="checkbox"><input className="checkB" type="checkbox" onChange={() =>this.handleCheckChange(index)} checked={tdl[index].check} ></input> 
         {tdl[index].task} <br></br> 
         <p className="due"> <strong> <u> {tdl[index].due} </u>  </strong> </p> 
         <button className="deleteB" onClick={() =>this.handleDelete(index)} ></button> <br></br> 
